@@ -64,8 +64,8 @@ This project demonstrates the creation of a real-time scalable big data pipeline
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Tezz1999/github-bot.git
-   cd github-bot
+   git clone https://github.com/Tezz1999/Covid-19-Analysis.git
+   cd Covid-19-Analysis
 
 2. Set up and configure an EC2 instance to host the Docker-based cluster (refer to [configDocker.pdf](#)).
 
@@ -104,10 +104,13 @@ Ensure that all necessary connections, such as the Hive connection, are configur
   - corana_data.hql
 
 ### 5. Airflow - Orchestration
-- Purpose: Automates the execution of pipeline tasks.
-- Connections Required:  
-  - Hive connection: Set this up in the Airflow UI.
-- Initialization Script: airflow_init.sh - This creates Dags, logs aand plugin folders. 
+- **Purpose:** Automates the execution of pipeline tasks.
+- **Connections Required:**
+  - Hive connection: Set this up in the Airflow UI.  
+    ![Hive Connection](Capture.PNG)
+- **Initialization Script:** `airflow_init.sh`  
+  This script creates the required folders (`dags`, `logs`, and `plugins`) for Airflow and initializes the environment for the pipeline.
+
 
 ## Customization 
 
@@ -123,6 +126,21 @@ Ensure that all necessary connections, such as the Hive connection, are configur
 - Use NiFi's EvaluateJsonPath processor to add custom data quality parameters and transformations.
 - For big data aggegations, groupby's and transformation use pyspark to read data from Kafka and write it back to Kafka consumer.
 
+## 🚧 Project Status: Beta
+
+This project is currently in **beta** and under active development. While the core functionalities are implemented and operational, there are ongoing efforts to enhance features, optimize performance, and improve scalability.
+
+### Known Areas for Improvement:
+- **Implementing Advanced Quality Metrics:** Enhance the pipeline to calculate and monitor comprehensive data quality metrics, ensuring accuracy, completeness, and reliability in real-time data streams.
+- **Deep-Dive Real-Time Insights:** Extend data analysis capabilities to derive actionable insights, such as recovery rates and mortality rates for specific countries, leveraging real-time processing to deliver up-to-date information.
+- **Building Real-Time Dashboards:** Develop interactive, real-time dashboards to visualize key performance indicators (KPIs), enabling users to monitor trends such as case progression, recovery rates, and other metrics at a glance.
+
+
+### Contributing:
+Feedback and contributions are welcome! Feel free to submit issues or pull requests to help improve this project.
+
+> **Note:** As this project is still evolving, there might be breaking changes in the pipeline or configurations in future updates.
+
 ## Acknowledgments
 Special thanks to:
 - **Big Data Europe** for providing docker images for hadoop, Spark, and Hive.
@@ -130,3 +148,4 @@ Special thanks to:
 This project is a demonstration of integrating and leveraging big data tools to create a robust, real-time pipeline. It is not a typical data analysis project but a showcase of scalable, fault-tolerant data engineering.
 
 For questions or feedback, feel free to reach out via GitHub discussions.
+
